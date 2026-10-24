@@ -1,0 +1,145 @@
+bot:
+  name: "slack or telegram"
+  token: "bot_secret_token"
+  refresh_token: "slack_bot_refresh_token"
+  slack_channel: "workflowai"
+jira:
+  base_url: "https://your.baseurl.com"
+  auth_token: "your_auth_token"
+  username: "email@example.com"
+smartnotes:
+  path: "/Users/kgatilin/Documents/Obsidian/SmartNotes"
+  exclude_directories:
+    "Life": true
+    "AIAssistant": true
+  aggregated_output_path: "/etc/ai-assistant/smartnotes.json"
+  todo_list_output_path: "/etc/ai-assistant/todos.json"
+assistants:
+  bsw_epm:
+    id: bswEPM
+    ai_assistant: bswEpmAI
+  bsw_pm:
+    id: bswPM
+    ai_assistant: bswPMTicketsGuide
+  slack:
+    id: slack
+  confluence:
+    id: confluence
+    ai_assistant: confluence
+ai_assistants:
+  bsw_epm:
+    id: bswEpmAI
+    openai_assistant_id: asst_PXvbzp5B2qoVRGtVQQiytQpv
+    api_type: Azure
+    api_base_url: https://epm-ai-eastus.openai.azure.com/
+    api_version: 2024-05-01-preview
+    parameters:
+      top_p: 1
+      temperature: 0.5
+      response_format: auto
+      instructions_filename: ./assistants/epm/instructions.txt
+      instructions_backup_filename: ./assistants/epm/instructions_backup.txt
+      tools_filename: ./assistants/epm/tools.json
+      feedback_folder: ./assistants/epm/feedback
+  bwreporter:
+    id: bwReporter
+    openai_assistant_id: asst_JxmA6SnKfPwrSpJtGBIyAnxY
+    api_type: Azure
+    api_base_url: https://epm-ai-eastus.openai.azure.com/
+    api_version: 2024-05-01-preview
+    parameters:
+      top_p: 1
+      temperature: 0.2
+      response_format: auto
+      instructions_filename: ./assistants/bwreporter/instructions.txt
+      instructions_backup_filename: ./assistants/bwreporter/instructions_backup.txt
+  epm_active_epics_summary:
+    id: epmActiveEpicsSummary
+    openai_assistant_id: asst_nJvx55UAAubayIUSqwPALxWL
+    api_type: Azure
+    api_base_url: https://epm-ai-eastus.openai.azure.com/
+    api_version: 2024-05-01-preview
+    parameters:
+      top_p: 1
+      temperature: 0.1
+      response_format: auto
+      instructions_filename: ./assistants/epm-ae-summary/instructions.txt
+      instructions_backup_filename: ./assistants/epm-ae-summary/instructions_backup.txt
+  bsw_product_manager:
+    id: bswProductManager
+    openai_assistant_id: asst_2VHhWOU3It7Gf7Hdl6WaUT3c
+    api_type: Azure
+    api_base_url: https://epm-ai-eastus.openai.azure.com/
+    api_version: 2024-05-01-preview
+    parameters:
+      top_p: 1
+      temperature: 0.5
+      response_format: auto
+      instructions_filename: ./assistants/bsw-product-manager/instructions.txt
+      tools_filename: ./assistants/bsw-product-manager/tools.json
+  bsw_design_doc:
+    id: bswDesignDoc
+    openai_assistant_id: asst_CtLYvoIPkA5tttNioLlvrGY7
+    api_type: Azure
+    api_base_url: https://epm-ai-eastus.openai.azure.com/
+    api_version: 2024-05-01-preview
+    parameters:
+      top_p: 1
+      temperature: 0.1
+      response_format: auto
+      instructions_filename: ./assistants/bsw-design-doc/instructions.txt
+      tools_filename: ./assistants/bsw-design-doc/tools.json
+  custom_code:
+    id: customCode
+    openai_assistant_id: asst_JsTBLH2t92my3XeFZydor3am
+    api_type: Azure
+    api_base_url: https://epm-ai-eastus.openai.azure.com/
+    api_version: 2024-05-01-preview
+    parameters:
+      top_p: 1
+      temperature: 0.1
+      response_format: auto
+      instructions_filename: ./assistants/custom-code/instructions.txt
+      tools_filename: ./assistants/custom-code/tools.json
+  jira:
+    id: jira
+    openai_assistant_id: asst_7LEsJGg62SK99G4783Ijfl1G
+    api_type: Azure
+    api_base_url: https://epm-ai-eastus.openai.azure.com/
+    api_version: 2024-05-01-preview
+    parameters:
+      top_p: 1
+      temperature: 0.1
+      response_format: auto
+      instructions_filename: ./assistants/jira/instructions.txt
+      tools_filename: ./assistants/jira/tools.json
+  confluence:
+    id: confluence
+    openai_assistant_id: asst_sY0CaaeExE7xdKFsUBgiQ94r
+    api_type: Azure
+    api_base_url: https://epm-ai-eastus.openai.azure.com/
+    api_version: 2024-05-01-preview
+    parameters:
+      top_p: 1
+      temperature: 0.1
+      response_format: auto
+      instructions_filename: ./assistants/confluence/instructions.txt
+      tools_filename: ./assistants/confluence/tools.json
+  bsw_pm_tickets_guide:
+    id: bswPMTicketsGuide
+    openai_assistant_id: asst_20QvpdfNdmc6tdJMGUvmKgYs
+    api_type: Azure
+    api_base_url: https://epm-ai-eastus.openai.azure.com/
+    api_version: 2024-05-01-preview
+    parameters:
+      top_p: 1
+      temperature: 0.1
+      response_format: auto
+      instructions_filename: ./assistants/bsw-pm-tickets-guide/instructions.txt
+      tools_filename: ./assistants/bsw-pm-tickets-guide/tools.json
+workflows:
+  #  - name: "ping tickets in progress"
+  #    filter: "assignee = currentUser() AND status = 'In Progress'"
+  #    handler: "ping"
+  #    schedule: "* * * * *"
+  -

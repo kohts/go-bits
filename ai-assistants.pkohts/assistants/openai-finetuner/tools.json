@@ -1,0 +1,29 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "save_finetuning_session",
+      "description": "https://github.com/openai/openai-cookbook/blob/main/examples/data/toy_chat_fine_tuning.jsonl",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "description": "List of prompt/response pairs",
+            "type": "array",
+            "items": {
+              "description": "Message",
+              "type": "object",
+              "properties": {
+                "role": "string",
+                "content": "string"
+              },
+              "required": [ "role", "content" ]
+            }
+          }
+        },
+        "required": [ "messages" ],
+        "minItems": 1
+      }
+    }
+  }
+]
